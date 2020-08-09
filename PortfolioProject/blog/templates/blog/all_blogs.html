@@ -4,15 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Blog Home</title>
+    {% load static %}
     <h1>Blog</h1>
     <br>
     {% for blog in blogs %}
 
-    <h2>{{ blog.title }}</h2>
-    <p>{{ blog.date }}</p>
+    <a href="{% url 'blog:detail' blog.id %}"><h2>{{ blog.title }}</h2></a>
+    <h5>{{ blog.date }}</h5>
     <p>{{ blog.description }}</p>
     <br>
     {% endfor %}
+
+    <a href="{% static 'blog/dcs.pdf' %}">Django Cheatsheet</a>
 </head>
 <body>
 
